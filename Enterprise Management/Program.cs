@@ -78,8 +78,9 @@ static class Program
                     exitFlag = true;
                     break;
             }
+            Console.WriteLine();
             logger.LogMessage(message);
-            Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
+            Console.WriteLine("\nНажмите любую клавишу чтобы продолжить");
             Console.ReadKey();
         }
     }
