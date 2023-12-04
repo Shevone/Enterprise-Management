@@ -1,6 +1,8 @@
-﻿using Enterprise_Management.Models;
+﻿using Enterprise_Management.Logger;
+using Enterprise_Management.Models;
 using Enterprise_Management.Models.Employees;
 using Enterprise_Management.Models.Products;
+
 
 namespace Enterprise_Management;
 
@@ -10,7 +12,17 @@ static class Program
     public static void Main(string[] args)
     {
         InitializeData();
+        
+        // =================================
+        // Инициализация логера и его методов
+        Logger.Logger logger = new Logger.Logger();
+        FileWriter fileWriter = new FileWriter("");
+        // Добавили метод печати в консоль
+        logger.AddHandler(Console.WriteLine);
+        logger.AddHandler(fileWriter.FileLogPrint);
+        // =================================
         bool exitFlag = false;
+        logger.LogMessage("Старт работы приложения");
         while (!exitFlag)
         {
             // Выводим инфу, и смотрим что выберут
@@ -33,7 +45,8 @@ static class Program
                     break;
                 case "1":
                     // пункт меню - просмотр инфы
-                    message = _factory.ToString();
+                    Console.WriteLine(_factory.ToString());
+                    message = "Была просмотрена информация о фабрике"; 
                     break;
                 case "2":
                     // Пункт меню - создание новго товара
@@ -65,8 +78,9 @@ static class Program
                     exitFlag = true;
                     break;
             }
-            Console.WriteLine(message);
-            Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
+            Console.WriteLine();
+            logger.LogMessage(message);
+            Console.WriteLine("\nНажмите любую клавишу чтобы продолжить");
             Console.ReadKey();
         }
     }
