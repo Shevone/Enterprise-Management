@@ -14,18 +14,6 @@ public class Factory
     private IEmployeeCollection<FactoryWorker> _factoryWorkers = new EmployeeCollection<FactoryWorker>();
     private IEmployeeCollection<Salesperson> _salesPersons = new EmployeeCollection<Salesperson>();
     
-    // Свойство, которое возвращает полный список сотрудников
-    private List<Employee> _employees
-    {
-        get
-        {
-            List<Employee> employees = new List<Employee>();
-            employees.AddRange(_managers);
-            employees.AddRange(_factoryWorkers);
-            employees.AddRange(_salesPersons);
-            return employees;
-        }
-    }
 
     // ============================================================
     // Список товариов
@@ -122,27 +110,75 @@ public class Factory
         
     }
     // ====================================================
+    // Метод сортировки
+    // На вход нам приходит строка, полученная из консол в классе Program
+    // В зависимости от того какая строка пришла, то в делегат Func
+    // записываем определенный статический метод, находящийся в классе програм
+    //  Смотрим, если "1" то в делегат записываем сравнение по Имени сотрудника
+    // "2" - сравнение по зарплате
+    // Сортировка будет происходить именно среди коллекций определенного типа
+    // Менеджеры отсортируются среди менеджеров
+    // Работяги среди работяг
+    // ПРодавцы среди продавцов
+    public string SortEmployees(string index)
+    {
+        // Делегат куда записывается метод сравнения
+        Func<Employee, Employee, bool> compareFunc;
+        // Сообщение о том что произошло
+        string message;
+        switch (index)
+        {
+            default:
+                // Елси что то не то поступило
+                message = "Сортировка не произведена, посутпил неправильный параметр";
+                return message;
+            case "1":
+                compareFunc = Employee.CompareByName;
+                message = "Произведена сортировка по именам сотрудников";
+                break;
+            case "2":
+                compareFunc = Employee.CompareBySalary;
+                message = "Произведена сортировка по зарплате сотрудников";
+                break;
+        }
+        _managers.SortEmployees(compareFunc);
+        _factoryWorkers.SortEmployees(compareFunc);
+        _salesPersons.SortEmployees(compareFunc);
+        return message;
+    }
 
+    // ====================================================
     public override string ToString()
     {
         // Формируем то как будет выводится инфа
         StringBuilder sb = new StringBuilder();
         sb.Append($"Предприятие : {_factoryName}\n" +
-                  $"Количество сотрудников : {_employees.Count}\n" +
+                  $"Количество сотрудников : {_managers.Count + _factoryWorkers.Count + _salesPersons.Count}\n" +
                   $"Количество разновидностей происзводимых товаров : {_productsList.Count}\n\n" +
-                  $"Сотрудники\n");
-        foreach (Employee employee in _employees)
+                  $"Сотрудники\n\nМенеджеры\n");
+        foreach (Manager manager in _managers)
         {
-            // Полиморфный вызов
-            sb.Append(employee.DisplayInfo() + "\n");
+            sb.Append(manager.DisplayInfo() + "\n");
         }
 
+        sb.Append("===========\nПродавцы\n");
+        foreach (Salesperson salesperson in _salesPersons)
+        {
+            sb.Append(salesperson.DisplayInfo() + "\n");
+        }
+
+        sb.Append("===========\nРаботники\n");
+        foreach (FactoryWorker factoryWorker in _factoryWorkers)
+        {
+            sb.Append(factoryWorker.DisplayInfo() + "\n");
+        }
         sb.Append("\nПроизводимые товары\n");
         foreach (Product product in _productsList)
         {
             sb.Append(product + "\n");
         }
 
+        sb.Append("\n");
         double cost = CostOfProduction;
         double sale = ProfitOnSales;
         double profit = sale - cost;

@@ -19,9 +19,10 @@ static class Program
                               "1 - Просмотр информации о фабрике\n" +
                               "2 - Создать новый товар\n" +
                               "3 - Произвести товар\n" +
-                              "4 - Продать товар" +
+                              "4 - Продать товар\n" +
                               "5 - Нанять новго сотрудника\n" +
-                              "6 - Выход\n");
+                              "6 - Cортировка\n" +
+                              "7 - Выход\n");
             string index = Console.ReadLine() ?? "";
             string message;
             switch (index)
@@ -43,12 +44,26 @@ static class Program
                     message = ProduceProduct();
                     break;
                 case "4":
+                    // Продать продукты
                     message = SaleProduct();
                     break;
                 case "5":
+                    // Новый сотрудник
                     message = NewEmployee();
                     break;
-                
+                case "6":
+                    // Сортировка
+                    Console.WriteLine("Выберите тип сортировки сотрудников\n" +
+                                      "1 - Сортировка по имени\n" +
+                                      "2 - Сортировка по зарплате\n");
+                    string readLine = Console.ReadLine() ?? "";
+                    message = _factory.SortEmployees(readLine);
+                    break;
+                case "7":
+                    // Выход
+                    message = "Выбран выход";
+                    exitFlag = true;
+                    break;
             }
             Console.WriteLine(message);
             Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
@@ -156,9 +171,12 @@ static class Program
     {
         _factory.AddNewEmployee(new Manager("Иван", 30000));
         _factory.AddNewEmployee(new Manager("Вася", 40000));
+        _factory.AddNewEmployee(new Manager("Хуссейн", 3000));
         
         _factory.AddNewEmployee(new Salesperson("Ирина", 25000, "Электроника"));
         _factory.AddNewEmployee(new Salesperson("Владислав", 27000,"Посуда"));
+        _factory.AddNewEmployee(new Salesperson("Аркадий", 10000, "Одежда"));
+        _factory.AddNewEmployee(new Salesperson("Ольга", 30000,""));
         
         _factory.AddNewEmployee(new FactoryWorker("Петр", 19500, "Происзводство электроники"));
         _factory.AddNewEmployee(new FactoryWorker("Петр", 18000, "Происзводство посуды"));
