@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Enterprise_Management.Collection.EmployeeCollection&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAAAABCAAQEAAAAAAAEAAAAAAEAAAA=</HashCode>
+      <FileName>Collection\EmpoyeeCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Enterprise_Management.Logger.FileWriter" Collapsed="true">
+    <Position X="16.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger\FileWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Logger.Logger" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAA=</HashCode>
+      <FileName>Logger\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Employees.Employee" Collapsed="true">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAICAAAAABEAAEAAAAAAAAAAAAAAAACAAAAAQAAAA=</HashCode>
+      <FileName>Models\Employees\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Employees.FactoryWorker" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Employees\FactoryWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Employees.Manager" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employees\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Employees.Salesperson" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employees\Salesperson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Products.Product" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAACIAAAAAgAAQAEAABEAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Products\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Models.Factory" Collapsed="true">
+    <Position X="15" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAgAgAAAAAAAEAAwABQAkAAAAAAAACAAAAIAAAAQ=</HashCode>
+      <FileName>Models\Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enterprise_Management.Program" Collapsed="true">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQgAAAAAAAAAAAAAAAAAAAAAEAAAAgCBAAAAAg=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Enterprise_Management.Collection.IEmployeeCollection&lt;T&gt;" Collapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Collection\IEmployeeCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
