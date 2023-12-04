@@ -35,4 +35,22 @@ public abstract class Employee
     {
         return $"Имя : {_name}, Зарплата : {Salary}";
     }
+    // =======================================================================================================================
+    // Статические методы которые возвращают true если первый переданный объект "больше" второго
+    // метод CompareTo возвращает:
+    // -1 - если первый больше второ
+    // 0 - если одинаковые
+    // 1 - если первый больше второго
+    // Поэтому если результат сравнения больше 0, то вернется true, а иначе false
+    public static bool CompareByName(Employee employee1, Employee employee2)
+    {
+        int compareRes = string.Compare(employee1._name, employee2._name, StringComparison.Ordinal);
+        return compareRes > 0;
+    }
+    public static bool CompareBySalary(Employee employee1, Employee employee2)
+    {
+        int compareRes = employee1.Salary.CompareTo(employee2.Salary);
+        return compareRes > 0;
+    }
+    // =======================================================================================================================
 }
